@@ -1,0 +1,215 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Swagger Members API"
+  },
+  "host": "cc-swaggermembersapi.herokuapp.com",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "member"
+    }
+  ],
+  "paths": {
+    "/members": {
+      "get": {
+        "tags": ["member"],
+        "summary": "Get all members",
+        "description": "",
+        "operationId": "getMembers",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "post": {
+        "tags": ["member"],
+        "summary": "Add a new member",
+        "description": "",
+        "operationId": "addMember",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Member object to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Member"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/members/{memberId}": {
+      "get": {
+        "tags": ["member"],
+        "summary": "Find member by ID",
+        "description": "Returns a single member",
+        "operationId": "getMemberById",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "memberId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "put": {
+        "tags": ["member"],
+        "summary": "Update an existing member",
+        "description": "",
+        "operationId": "updateMember",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "memberId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Member object to be updated",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Member"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["member"],
+        "summary": "Delete member by ID",
+        "description": "",
+        "operationId": "deleteMemberById",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "memberId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully deleted the given member"
+          },
+          "404": {
+            "description": "Member not found"
+          }
+        }
+      }
+    },
+    "/members/search": {
+      "get": {
+        "tags": ["member"],
+        "summary": "Search for specific members",
+        "description": "",
+        "operationId": "searchMembers",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "query",
+            "type": "string",
+            "name": "firstName",
+            "required": false
+          },
+          {
+            "in": "query",
+            "type": "string",
+            "name": "lastName",
+            "required": false
+          },
+          {
+            "in": "query",
+            "type": "string",
+            "name": "email",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Member": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "birthday": {
+          "type": "string"
+        },
+        "birthLocation": {
+          "type": "string"
+        },
+        "currentLocation": {
+          "type": "string"
+        },
+        "married": {
+          "type": "boolean"
+        },
+        "profession": {
+          "type": "string"
+        },
+        "company": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

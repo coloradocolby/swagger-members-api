@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - node # latest stable
+env:
+  - NODE_ENV=test MONGO_URI=mongodb://localhost:27017/test
+cache:
+  directories:
+    - 'node_modules'
+services:
+  - mongodb
