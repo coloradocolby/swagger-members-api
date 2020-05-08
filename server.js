@@ -17,7 +17,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 const app = express()
 ;(async () => {
-  console.log(process.env.MONGO_URI)
   await db.connect(process.env.MONGO_URI)
 
   app.use(bodyParser.json())
@@ -46,7 +45,7 @@ const app = express()
   })
 
   app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}\n`.magenta.bold)
+    console.log(`Server listening on http://localhost:${PORT}\n`.magenta.bold)
     app.emit('READY')
   })
 })()

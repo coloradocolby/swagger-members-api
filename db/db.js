@@ -6,6 +6,7 @@ const connect = async uri => {
       useNewUrlParser: true,
       useCreateIndex: true,
       useFindAndModify: false,
+      useUnifiedTopology: true,
     })
 
     console.log(

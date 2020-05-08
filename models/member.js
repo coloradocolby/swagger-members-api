@@ -5,19 +5,16 @@ const MemberSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true,
-    lowercase: true,
   },
   lastName: {
     type: String,
     required: true,
     trim: true,
-    lowercase: true,
   },
   email: {
     type: String,
     required: true,
     trim: true,
-    lowercase: true,
     unique: true,
     match: [
       /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
@@ -28,25 +25,21 @@ const MemberSchema = new mongoose.Schema({
     type: Date,
     required: true,
     trim: true,
-    lowercase: true,
   },
   gender: {
     type: String,
     required: true,
     trim: true,
-    lowercase: true,
   },
   birthLocation: {
     type: String,
     required: true,
     trim: true,
-    lowercase: true,
   },
   currentLocation: {
     type: String,
     required: true,
     trim: true,
-    lowercase: true,
   },
   married: {
     type: Boolean,
@@ -56,13 +49,11 @@ const MemberSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true,
-    lowercase: true,
   },
   company: {
     type: String,
     required: true,
     trim: true,
-    lowercase: true,
   },
   lastUpdated: {
     type: Date,
